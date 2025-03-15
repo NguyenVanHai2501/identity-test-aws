@@ -1,20 +1,20 @@
 server:
-  port: 8080
+  port: ${PORT}
   servlet:
-    context-path: /identity
+    context-path: ${CONTEXT_PATH}
 
 spring:
   datasource:
-    url: ${DBMS_CONNECTION:jdbc:mysql://localhost:3306/identity_service}
-    driverClassName: "com.mysql.cj.jdbc.Driver"
-    password: ${DBMS_PASSWORD:root}
-    username: ${DBMS_USERNAME:root}
+    url: ${MYSQL_URL}
+    driverClassName: ${MYSQL_DRIVER_CLASSNAME}
+    password: ${MYSQL_PASSWORD}
+    username: ${MYSQL_USERNAME}
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
 jwt:
-  signerKey: "1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij"
+  signerKey: ${JWT_KEY}
   valid-duration: 3600 # in second
   refreshable-duration: 36000 # in seconds
